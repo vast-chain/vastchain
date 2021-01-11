@@ -1,0 +1,22 @@
+[package]
+description = "A crate to interact with the block rewards contract."
+name = "block-reward"
+version = "0.1.0"
+authors = ["Vast Technologies <admin@vast.io>"]
+edition = "2018"
+license = "GPL-3.0"
+
+[dependencies]
+common-types = { path = "../types" }
+engine = { path = "../engine" }
+vastabi = "9.0.1"
+vastabi-derive = "9.0.1"
+vastabi-contract = "9.0.0"
+vast-types = "0.8.0"
+keccak-hash = "0.4.0"
+machine = { path = "../machine" }
+trace = { path = "../trace" }
+
+[dev-dependencies]
+vastcore = { path = "..", features = ["test-helpers"] }
+spec = { path = "../spec" }

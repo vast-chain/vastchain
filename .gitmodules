@@ -1,0 +1,7 @@
+[submodule "vastcore/res/vast/tests"]
+	path = vastcore/res/vast/tests
+	url = https://github.com/vast/tests.git
+	branch = develop
+[submodule "vastcore/res/wasm-tests"]
+	path = vastcore/res/wasm-tests
+	url = https://github.com/vasttech/wasm-tests

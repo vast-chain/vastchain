@@ -1,0 +1,138 @@
+[package]
+description = "Vast client"
+name = "vast-vast"
+# NOTE Make sure to update util/version/Cargo.toml as well
+version = "2.7.2"
+license = "GPL-3.0"
+authors = ["Vast Technologies <admin@vast.io>"]
+
+[dependencies]
+ansi_term = "0.11"
+atty = "0.2.8"
+blooms-db = { path = "util/blooms-db" }
+clap = "2"
+cli-signer= { path = "cli-signer" }
+client-traits = { path = "vastcore/client-traits" }
+common-types = { path = "vastcore/types" }
+ctrlc = { git = "https://github.com/vasttech/rust-ctrlc.git" }
+dir = { path = "util/dir" }
+docopt = "1.0"
+engine = { path = "vastcore/engine" }
+vastabi = { version = "9.0.1", optional = true }
+vastcore = { path = "vastcore", features = ["vast"] }
+vastcore-accounts = { path = "accounts", optional = true }
+vastcore-blockchain = { path = "vastcore/blockchain" }
+vastcore-call-contract = { path = "vastcore/call-contract", optional = true }
+vastcore-db = { path = "vastcore/db" }
+vastcore-io = { path = "util/io" }
+vastcore-light = { path = "vastcore/light" }
+vastcore-logger = { path = "vast/logger" }
+vastcore-miner = { path = "miner" }
+vastcore-network = { path = "util/network" }
+vastcore-private-tx = { path = "vastcore/private-tx" }
+vastcore-secretstore = { path = "secret-store", optional = true }
+vastcore-service = { path = "vastcore/service" }
+vastcore-sync = { path = "vastcore/sync" }
+vast-types = "0.8.0"
+vastkey = { path = "accounts/vastkey" }
+vaststore = { path = "accounts/vaststore" }
+fdlimit = "0.1"
+futures = "0.1"
+journaldb = { path = "util/journaldb" }
+jsonrpc-core = "14.0.3"
+keccak-hash = "0.4.0"
+kvdb = "0.3.1"
+kvdb-rocksdb = "0.4.1"
+log = "0.4"
+migration-rocksdb = { path = "util/migration-rocksdb" }
+node-filter = { path = "vastcore/node-filter" }
+num_cpus = "1.2"
+number_prefix = "0.2"
+panic_hook = { path = "util/panic-hook" }
+vast-bytes = "0.1"
+vast-crypto = { version = "0.4.2", features = ["publickey"] }
+vast-daemonize = "0.3"
+vast-hash-fetch = { path = "updater/hash-fetch" }
+vast-ipfs-api = { path = "ipfs" }
+vast-local-store = { path = "miner/local-store" }
+vast-path = "0.1"
+vast-rpc = { path = "rpc" }
+vast-runtime = { path = "util/runtime" }
+vast-updater = { path = "updater" }
+vast-util-mem = { version = "0.3.0", features = ["jemalloc-global"] }
+vast-version = { path = "util/version" }
+parking_lot = "0.9"
+regex = "1.0"
+registrar = { path = "util/registrar" }
+rlp = "0.4.0"
+rpassword = "1.0"
+rustc-hex = "1.0"
+semver = "0.9"
+serde = "1.0"
+serde_derive = "1.0"
+serde_json = "1.0"
+snapshot = { path = "vastcore/snapshot" }
+spec = { path = "vastcore/spec" }
+term_size = "0.3"
+textwrap = "0.9"
+toml = "0.4"
+verification = { path = "vastcore/verification" }
+
+[build-dependencies]
+rustc_version = "0.2"
+
+[dev-dependencies]
+pretty_assertions = "0.1"
+ipnetwork = "0.12.6"
+tempdir = "0.3"
+fake-fetch = { path = "util/fake-fetch" }
+
+[target.'cfg(windows)'.dependencies]
+winapi = { version = "0.3.4", features = ["winsock2", "winuser", "shellapi"] }
+
+[features]
+default = ["accounts"]
+accounts = ["vastcore-accounts", "vast-rpc/accounts"]
+miner-debug = ["vastcore/miner-debug"]
+json-tests = ["vastcore/json-tests"]
+test-heavy = ["vastcore/test-heavy"]
+evm-debug = ["vastcore/evm-debug"]
+evm-debug-tests = ["vastcore/evm-debug-tests"]
+slow-blocks = ["vastcore/slow-blocks"]
+secretstore = ["vastcore-secretstore", "accounts", "vastabi", "vastcore-call-contract"]
+final = ["vast-version/final"]
+deadlock_detection = ["parking_lot/deadlock_detection"]
+# to create a memory profile (requires nightly rust), use e.g.
+# `heaptrack /path/to/vast <vast params>`,
+# to visualize a memory profile, use `heaptrack_gui`
+# or
+# `valgrind --tool=massif /path/to/vast <vast params>`
+# and `massif-visualizer` for visualization
+memory_profiling = []
+# hardcode version number 1.3.7 of vast to force an update
+# in order to manually test that vast fall-over to the local version
+# in case of invalid or deprecated command line arguments are entered
+test-updater = ["vast-updater/test-updater"]
+
+[lib]
+path = "vast/lib.rs"
+
+[[bin]]
+path = "vast/main.rs"
+name = "vast"
+
+[profile.release]
+debug = false
+lto = true
+
+[workspace]
+# This should only list projects that are not
+# in the dependency tree in any other way
+# (i.e. pretty much only standalone CLI tools)
+members = [
+	"accounts/vastkey/cli",
+	"accounts/vaststore/cli",
+	"chainspec",
+	"vastcore/wasm/run",
+	"evmbin",
+]

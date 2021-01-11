@@ -1,0 +1,12 @@
+[package]
+description = "Vast (VastCore) Contract Calls and Blockchain Service & Registry Information"
+name = "vastcore-call-contract"
+version = "0.1.0"
+license = "GPL-3.0"
+authors = ["Vast Technologies <admin@vast.io>"]
+edition = "2018"
+
+[dependencies]
+types = { path = "../types", package = "common-types" }
+vast-types = "0.8.0"
+bytes = { version = "0.1", package = "vast-bytes" }

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Vast
+Comment=The fastest and most advanced Vast client.
+Exec=vast
+Icon=/usr/share/pixmaps/icon.png
+Terminal=true

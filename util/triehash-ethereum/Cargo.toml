@@ -1,0 +1,11 @@
+[package]
+name = "triehash-vast"
+version = "0.2.0"
+authors = ["Vast Technologies <admin@vast.io>"]
+description = "Trie-root helpers, vast style"
+license = "GPL-3.0"
+
+[dependencies]
+triehash = "0.8.2"
+vast-types = "0.8.0"
+keccak-hasher = { path = "../keccak-hasher" }

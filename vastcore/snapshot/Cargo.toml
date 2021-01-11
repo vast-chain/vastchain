@@ -1,0 +1,66 @@
+[package]
+description = "Take and restore snapshots of the blockchain and read/write it in chunks from/to disk"
+name = "snapshot"
+version = "0.1.0"
+authors = ["Vast Technologies <admin@vast.io>"]
+edition = "2018"
+license = "GPL-3.0"
+
+[[bench]]
+name = "to_fat_rlps"
+harness = false
+
+[dependencies]
+account-db = { path = "../account-db" }
+account-state = { path = "../account-state" }
+blockchain = { package = "vastcore-blockchain", path = "../blockchain" }
+bloom-journal = { package = "vastcore-bloom-journal", path = "../../util/bloom" }
+bytes = { package = "vast-bytes", version = "0.1.0" }
+client-traits = { path = "../client-traits" }
+common-types = { path = "../types" }
+crossbeam-utils = "0.6"
+engine = { path = "../engine" }
+vastcore-db = { path = "../db" }
+vastcore-io = { path = "../../util/io" }
+vast-types = "0.8.0"
+vasttrie  = { package = "patricia-trie-vast", path = "../../util/patricia-trie-vast" }
+hash-db = "0.15.0"
+itertools = "0.5"
+journaldb = { path = "../../util/journaldb" }
+keccak-hash = "0.4.0"
+keccak-hasher = { path = "../../util/keccak-hasher" }
+kvdb = "0.3.1"
+log = "0.4.8"
+num_cpus = "1.10.1"
+rand = "0.7"
+rand_xorshift = "0.2"
+parking_lot = "0.9"
+rlp = "0.4.2"
+rlp_derive = { path = "../../util/rlp-derive" }
+scopeguard = "1.0.0"
+snappy = { package = "vast-snappy", version ="0.1.0" }
+state-db = { path = "../state-db" }
+trie-db = "0.18.0"
+triehash = { package = "triehash-vast", version = "0.2",  path = "../../util/triehash-vast" }
+
+[dev-dependencies]
+accounts = { package = "vastcore-accounts", path = "../../accounts" }
+criterion = "0.3.0"
+engine = { path = "../engine", features = ["test-helpers"] }
+env_logger = "0.5"
+vastabi = "9.0.1"
+vastabi-contract = "9.0.0"
+vastabi-derive = "9.0.1"
+vastcore = { path = "..", features = ["test-helpers"] }
+vastkey = { path = "../../accounts/vastkey" }
+kvdb-rocksdb = "0.4.1"
+lazy_static = { version = "1.3" }
+spec = { path = "../spec" }
+tempdir = "0.3"
+trie-standardmap = "0.15.0"
+# Note[dvdplm]: Ensure the snapshot tests are included in the dependency tree, which in turn means that
+# `cargo test --all` runs the tests.
+snapshot-tests = { path = "./snapshot-tests" }
+
+[features]
+test-helpers = []

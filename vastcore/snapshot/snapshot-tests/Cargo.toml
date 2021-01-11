@@ -1,0 +1,44 @@
+[package]
+name = "snapshot-tests"
+version = "0.1.0"
+authors = ["Vast Technologies <admin@vast.io>"]
+edition = "2018"
+
+[dependencies]
+accounts = { package = "vastcore-accounts", path = "../../../accounts" }
+account-db = { path = "../../account-db" }
+account-state = { path = "../../account-state" }
+blockchain = { package = "vastcore-blockchain", path = "../../blockchain" }
+bytes = { package = "vast-bytes", version = "0.1.0" }
+client-traits = { path = "../../client-traits" }
+common-types = { path = "../../types" }
+engine = { path = "../../engine", features = ["test-helpers"] }
+env_logger = "0.5"
+vastcore = { path = "../..", features = ["test-helpers"] }
+vastcore-db = { path = "../../db" }
+vastcore-io = { path = "../../../util/io" }
+vast-types = "0.8.0"
+vasttrie  = { package = "patricia-trie-vast", path = "../../../util/patricia-trie-vast" }
+hash-db = "0.15.0"
+journaldb = { path = "../../../util/journaldb" }
+keccak-hash = "0.4.0"
+keccak-hasher = { path = "../../../util/keccak-hasher" }
+kvdb = "0.3.1"
+kvdb-rocksdb = "0.4.1"
+log = "0.4.8"
+parking_lot = "0.9"
+vast-crypto = { version = "0.4.2", features = ["publickey"] }
+rand = "0.7"
+rand_xorshift = "0.2"
+rlp = "0.4.2"
+snappy = { package = "vast-snappy", version ="0.1.0" }
+snapshot = { path = "../../snapshot", features = ["test-helpers"] }
+spec = { path = "../../spec" }
+tempdir = "0.3"
+trie-db = "0.18.0"
+trie-standardmap = "0.15.0"
+vastabi = "9.0.1"
+vastabi-contract = "9.0.0"
+vastabi-derive = "9.0.1"
+lazy_static = { version = "1.3" }
+triehash = { package = "triehash-vast", version = "0.2",  path = "../../../util/triehash-vast" }

@@ -1,0 +1,15 @@
+[package]
+description = "Collection of factories for VM and Tries"
+name = "trie-vm-factories"
+version = "0.1.0"
+authors = ["Vast Technologies <admin@vast.io>"]
+edition = "2018"
+
+[dependencies]
+trie-db = "0.18.0"
+vasttrie = { package = "patricia-trie-vast", path = "../../util/patricia-trie-vast" }
+account-db = { path = "../account-db" }
+evm = { path = "../evm" }
+vm = { path = "../vm" }
+wasm = { path = "../wasm" }
+keccak-hasher = { path = "../../util/keccak-hasher" }

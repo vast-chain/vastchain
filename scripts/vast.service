@@ -1,0 +1,22 @@
+[Unit]
+Description=Vast Daemon
+After=network.target
+
+[Service]
+# run as root, set base_path in config.toml
+ExecStart=/usr/bin/vast --config /etc/vast/config.toml
+# To run as user, comment out above and uncomment below, fill in user and group
+# picks up users default config.toml in $HOME/.local/share/io.vast.vast/
+# User=username
+# Group=groupname
+# ExecStart=/usr/bin/vast
+Restart=on-failure
+
+# Specifies which signal to use when killing a service. Defaults to SIGTERM.
+# SIGHUP gives vast time to exit cleanly before SIGKILL (default 90s)
+KillSignal=SIGHUP
+
+[Install]
+WantedBy=default.target
+
+

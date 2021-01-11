@@ -1,0 +1,11 @@
+[package]
+description = "Vast Runtime"
+homepage = "http://vast.io"
+license = "GPL-3.0"
+name = "vast-runtime"
+version = "0.1.0"
+authors = ["Vast Technologies <admin@vast.io>"]
+
+[dependencies]
+futures = "0.1"
+tokio = "0.1.22"

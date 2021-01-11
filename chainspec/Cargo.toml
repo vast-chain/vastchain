@@ -1,0 +1,9 @@
+[package]
+description = "Vast Chain Specification"
+name = "chainspec"
+version = "0.1.0"
+authors = ["Marek Kotewicz <marek@vast.io>"]
+
+[dependencies]
+vastjson = { path = "../json" }
+serde_json = "1.0"

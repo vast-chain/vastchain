@@ -1,0 +1,11 @@
+[package]
+name = "dir"
+version = "0.1.2"
+authors = ["Vast Technologies <admin@vast.io>"]
+license = "GPL3"
+
+[dependencies]
+vast-types = "0.8.0"
+journaldb = { path = "../journaldb" }
+app_dirs = { git = "https://github.com/vasttech/app-dirs-rs" }
+home = "0.3"

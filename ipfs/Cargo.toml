@@ -1,0 +1,22 @@
+[package]
+description = "Vast IPFS-compatible API"
+name = "vast-ipfs-api"
+version = "1.12.0"
+license = "GPL-3.0"
+authors = ["Vast Technologies <admin@vast.io>"]
+edition = "2018"
+
+[dependencies]
+client-traits = { path = "../vastcore/client-traits" }
+common-types = { path = "../vastcore/types" }
+bytes = { package = "vast-bytes", version = "0.1"}
+vast-types = "0.8.0"
+jsonrpc-core = "14.0.3"
+http = { package = "jsonrpc-http-server", version = "14.0.3"}
+rlp = "0.4.0"
+cid = "0.3"
+multihash = "0.8"
+unicase = "2.0"
+
+[dev-dependencies]
+vastcore = { path = "../vastcore", features = ["test-helpers"] }

@@ -1,0 +1,13 @@
+[package]
+description = "Virtual Machines (VM) Support Library"
+name = "vm"
+version = "0.1.0"
+authors = ["Vast Technologies <admin@vast.io>"]
+
+[dependencies]
+vast-bytes = "0.1"
+vast-types = "0.8.0"
+patricia-trie-vast = { path = "../../util/patricia-trie-vast" }
+vastjson = { path = "../../json" }
+rlp = "0.4.0"
+keccak-hash = "0.4.0"

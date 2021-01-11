@@ -1,0 +1,22 @@
+[package]
+description = "Trait definitions relative the vast client"
+name = "client-traits"
+version = "0.1.0"
+authors = ["Vast Technologies <admin@vast.io>"]
+edition = "2018"
+license = "GPL-3.0"
+
+[dependencies]
+account-state = { path = "../account-state" }
+blockchain = { package = "vastcore-blockchain", path = "../blockchain" }
+bytes = { package = "vast-bytes", version = "0.1.0" }
+call-contract = { package = "vastcore-call-contract", path = "../call-contract" }
+common-types = { path = "../types" }
+vastcore-db = { path = "../db" }
+vastcore-miner = { path = "../../miner" }
+vast-types = "0.8.0"
+kvdb = "0.3.1"
+registrar = { path = "../../util/registrar" }
+stats = { path = "../../util/stats" }
+trace = { path = "../trace" }
+vm = { path = "../vm" }

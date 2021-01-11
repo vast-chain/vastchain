@@ -1,0 +1,25 @@
+[package]
+name = "patricia-trie-vast"
+version = "0.1.0"
+authors = ["Vast Technologies <admin@vast.io>"]
+description = "Merkle-Patricia Trie (Vast Style)"
+license = "GPL-3.0"
+
+[dependencies]
+trie-db = "0.18.0"
+keccak-hasher = { version = "0.1.1", path = "../keccak-hasher" }
+hash-db = "0.15.0"
+rlp = "0.4.4"
+vast-bytes = "0.1"
+vast-types = "0.8.0"
+elastic-array = "0.10"
+
+[dev-dependencies]
+memory-db = "0.18.0"
+keccak-hash = "0.4.0"
+journaldb = { path = "../journaldb" }
+criterion = "0.3"
+
+[[bench]]
+name = "rlp_node_codec"
+harness = false

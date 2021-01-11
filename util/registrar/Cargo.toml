@@ -1,0 +1,14 @@
+[package]
+description = "Registar for Vast"
+name = "registrar"
+version = "0.0.1"
+license = "GPL-3.0"
+authors = ["Vast Technologies <admin@vast.io>"]
+
+[dependencies]
+call-contract = { package = "vastcore-call-contract", path = "../../vastcore/call-contract" }
+vastabi = "9.0.1"
+vastabi-derive = "9.0.1"
+vastabi-contract = "9.0.0"
+keccak-hash = "0.4.0"
+types = { path = "../../vastcore/types", package = "common-types" }

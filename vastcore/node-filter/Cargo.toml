@@ -1,0 +1,28 @@
+[package]
+description = "Vast Smart Contract based Node Filter, Manage Permissions of Network Connections"
+homepage = "http://vast.io"
+license = "GPL-3.0"
+name = "node-filter"
+version = "1.12.0"
+authors = ["Vast Technologies <admin@vast.io>"]
+
+[dependencies]
+client-traits = { path = "../client-traits" }
+common-types = { path = "../types" }
+vastcore = { path = ".."}
+vastcore-network = { path = "../../util/network" }
+vastcore-network-devp2p = { path = "../../util/network-devp2p" }
+vast-types = "0.8.0"
+log = "0.4"
+parking_lot = "0.9"
+vastabi = "9.0.1"
+vastabi-derive = "9.0.1"
+vastabi-contract = "9.0.0"
+lru-cache = "0.1"
+
+[dev-dependencies]
+vastcore = { path = "..", features = ["test-helpers"] }
+kvdb-memorydb = "0.3.1"
+vastcore-io = { path = "../../util/io" }
+spec = { path = "../spec" }
+tempdir = "0.3"

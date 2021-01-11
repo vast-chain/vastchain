@@ -1,0 +1,22 @@
+[package]
+description = "Engine that seals instantly"
+name = "instant-seal"
+version = "0.1.0"
+authors = ["Vast Technologies <admin@vast.io>"]
+edition = "2018"
+license = "GPL-3.0"
+
+[dependencies]
+client-traits = { path = "../../client-traits" }
+common-types = { path = "../../types" }
+engine = { path = "../../engine" }
+vastjson = { path = "../../../json" }
+vast-types = "0.8.0"
+keccak-hash = "0.4.0"
+machine = { path = "../../machine" }
+trace = { path = "../../trace" }
+
+[dev-dependencies]
+vastcore = { path = "../..", features = ["test-helpers"] }
+spec = { path = "../../spec" }
+rlp = "0.4.2"

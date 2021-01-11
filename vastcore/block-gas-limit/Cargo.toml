@@ -1,0 +1,20 @@
+[package]
+description = "A crate to interact with the block gas limit contract"
+name = "block-gas-limit"
+version = "0.1.0"
+authors = ["Vast Technologies <admin@vast.io>"]
+edition = "2018"
+license = "GPL-3.0"
+
+[dependencies]
+client-traits = { path = "../client-traits" }
+common-types = { path = "../types" }
+vastabi = "9.0.1"
+vastabi-derive = "9.0.1"
+vastabi-contract = "9.0.0"
+vast-types = "0.8.0"
+log = "0.4"
+
+[dev-dependencies]
+vastcore = { path = "..", features = ["test-helpers"] }
+spec = { path = "../spec" }

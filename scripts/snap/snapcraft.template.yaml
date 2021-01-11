@@ -1,0 +1,49 @@
+name:               vast
+version:            $VERSION
+architectures:      [$BUILD_ARCH]
+grade:              $GRADE
+confinement:        strict
+
+summary:            Fast, light, robust Vast implementation
+description:        |
+  Vast's goal is to be the fastest, lightest, and most secure Vast
+  client. We are developing Vast using the sophisticated and cutting-edge
+  Rust programming language. Vast is licensed under the GPLv3, and can be
+  used for all your Vast needs.
+
+apps:
+  vast:
+    command:        vast
+    plugs:          [home, network, network-bind, mount-observe, removable-media, x11, unity7, desktop, desktop-legacy, wayland]
+    desktop:        ./usr/share/applications/vast.desktop
+  vast-evm:
+    command:        vast-evm
+    plugs:          [home, network, network-bind, removable-media]
+  vastkey:
+    command:        vastkey
+    plugs:          [home, removable-media]
+  vaststore:
+    command:        vaststore
+    plugs:          [home, removable-media]
+
+icon:               ./scripts/snap/icon.png
+
+parts:
+  desktop-icon:
+    source:         ./scripts/snap
+    plugin:         nil
+    override-build:        |
+      mkdir -p $SNAPCRAFT_PART_INSTALL/usr/share/applications
+      mkdir -p $SNAPCRAFT_PART_INSTALL/usr/share/pixmaps
+      cp -v ./vast.desktop $SNAPCRAFT_PART_INSTALL/usr/share/applications/
+      cp -v ./icon.png $SNAPCRAFT_PART_INSTALL/usr/share/pixmaps/
+  vast:
+    source:         ./artifacts/$CARGO_TARGET
+    plugin:         nil
+    override-build:        |
+      mkdir -p $SNAPCRAFT_PART_INSTALL/usr/bin
+      cp -v vast $SNAPCRAFT_PART_INSTALL/usr/bin/vast
+      cp -v vast-evm $SNAPCRAFT_PART_INSTALL/usr/bin/vast-evm
+      cp -v vastkey $SNAPCRAFT_PART_INSTALL/usr/bin/vastkey
+      cp -v vaststore $SNAPCRAFT_PART_INSTALL/usr/bin/vaststore
+    stage-packages: [libstdc++6, cmake, libdb5.3]

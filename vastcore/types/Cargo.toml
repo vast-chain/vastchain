@@ -1,0 +1,28 @@
+[package]
+description = "Vast Common Types"
+name = "common-types"
+version = "0.1.0"
+authors = ["Vast Technologies <admin@vast.io>"]
+
+[dependencies]
+derive_more = "0.15.0"
+vastbloom = "0.8.0"
+vastcore-io = { path = "../../util/io" }
+vast-types = "0.8.0"
+vastjson = { path = "../../json" }
+keccak-hash = "0.4.0"
+vast-bytes = "0.1"
+vast-crypto = { version = "0.4.2", features = ["publickey"] }
+vast-util-mem = "0.3.0"
+vast-snappy = "0.1"
+patricia-trie-vast = { path = "../../util/patricia-trie-vast" }
+rlp = "0.4.0"
+rlp_derive = { path = "../../util/rlp-derive" }
+unexpected = { path = "../../util/unexpected" }
+vm = { path = "../vm"}
+
+[dev-dependencies]
+rustc-hex = "2.0"
+
+[features]
+test-helpers = []

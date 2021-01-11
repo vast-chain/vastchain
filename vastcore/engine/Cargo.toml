@@ -1,0 +1,31 @@
+[package]
+description = "Vast engine trait definition"
+name = "engine"
+version = "0.1.0"
+authors = ["Vast Technologies <admin@vast.io>"]
+edition = "2018"
+license = "GPL-3.0"
+
+[dependencies]
+blockchain = { package = "vastcore-blockchain", path = "../blockchain" }
+builtin = { path = "../builtin", package = "vastcore-builtin" }
+bytes = { package = "vast-bytes", version = "0.1.0" }
+client-traits = { path = "../client-traits" }
+common-types = { path = "../types" }
+vast-types = "0.8.0"
+vast-crypto = { version = "0.4.2", features = ["publickey"] }
+machine = { path = "../machine" }
+vm = { path = "../vm" }
+
+# used from test-helpers
+accounts = { package = "vastcore-accounts", path = "../../accounts", optional = true }
+log = { version = "0.4.8", optional = true }
+vastkey = { path = "../../accounts/vastkey", optional = true }
+
+[dev-dependencies]
+accounts = { package = "vastcore-accounts", path = "../../accounts" }
+vastkey = { path = "../../accounts/vastkey" }
+log = "0.4.8"
+
+[features]
+test-helpers = ["accounts", "log", "vastkey"]

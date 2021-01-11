@@ -1,0 +1,18 @@
+[package]
+description = "Fetch current VAST price"
+homepage = "http://vast.io"
+license = "GPL-3.0"
+name = "price-info"
+version = "1.12.0"
+authors = ["Vast Technologies <admin@vast.io>"]
+edition = "2018"
+
+[dependencies]
+fetch = { path = "../../util/fetch" }
+futures = "0.1"
+log = "0.4"
+vast-runtime = { path = "../../util/runtime" }
+serde_json = "1.0"
+
+[dev-dependencies]
+fake-fetch = { path = "../../util/fake-fetch" }

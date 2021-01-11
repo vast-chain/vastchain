@@ -1,0 +1,14 @@
+[package]
+description = "Vast CLI Signer Tool"
+homepage = "http://vast.io"
+license = "GPL-3.0"
+name = "cli-signer"
+version = "1.4.0"
+authors = ["Vast <admin@vast.io>"]
+
+[dependencies]
+vast-types = "0.8.0"
+futures = "0.1"
+rpassword = "1.0"
+vast-rpc = { path = "../rpc" }
+vast-rpc-client = { path = "rpc-client" }

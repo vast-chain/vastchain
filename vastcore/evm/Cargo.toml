@@ -1,0 +1,30 @@
+[package]
+description = "Vast Virtual Machine (EVM) Rust Implementation"
+name = "evm"
+version = "0.1.0"
+authors = ["Vast Technologies <admin@vast.io>"]
+
+[dependencies]
+bit-set = "0.4"
+vast-bytes = "0.1"
+vast-types = "0.8.0"
+vast-util-mem = "0.3.0"
+lazy_static = "1.0"
+log = "0.4"
+vm = { path = "../vm" }
+keccak-hash = "0.4.0"
+parking_lot = "0.9"
+memory-cache = { path = "../../util/memory-cache" }
+
+[dev-dependencies]
+rustc-hex = "1.0"
+criterion = "0.3"
+hex-literal = "0.2.0"
+
+[features]
+evm-debug = []
+evm-debug-tests = ["evm-debug"]
+
+[[bench]]
+name = "basic"
+harness = false

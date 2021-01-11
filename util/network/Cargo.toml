@@ -1,0 +1,24 @@
+[package]
+description = "Vastcore network library"
+homepage = "http://vast.io"
+license = "GPL-3.0"
+name = "vastcore-network"
+version = "1.12.0"
+authors = ["Vast Technologies <admin@vast.io>"]
+
+[dependencies]
+derive_more = "0.14.0"
+vast-crypto = { version = "0.4.2", features = ["publickey"] }
+vastcore-io = { path = "../io" }
+vast-types = "0.8.0"
+ipnetwork = "0.12.6"
+lazy_static = "1.0"
+rlp = "0.4.0"
+libc = "0.2"
+vast-snappy = "0.1"
+semver = {version="0.9.0", features=["serde"]}
+serde = "1.0"
+serde_derive = "1.0"
+
+[dev-dependencies]
+assert_matches = "1.2"

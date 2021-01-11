@@ -1,0 +1,10 @@
+[package]
+description = "Vast custom panic hook"
+homepage = "http://vast.io"
+license = "GPL-3.0"
+name = "panic_hook"
+version = "0.1.0"
+authors = ["Vast Technologies <admin@vast.io>"]
+
+[dependencies]
+backtrace = "0.3.2"

@@ -1,0 +1,27 @@
+[package]
+description = "Vastash PoW blockchain engine"
+name = "vastash-engine"
+version = "0.1.0"
+authors = ["Vast Technologies <admin@vast.io>"]
+edition = "2018"
+license = "GPL-3.0"
+
+[dependencies]
+block-reward = { path = "../../block-reward" }
+common-types = { path = "../../types" }
+engine = { path = "../../engine" }
+vastash= { path = "../../../vastash" }
+vast-types = "0.8.0"
+vastjson = { path = "../../../json" }
+keccak-hash = "0.4.0"
+log = "0.4.8"
+machine = { path = "../../machine" }
+macros = { path = "../../../util/macros" }
+unexpected = { path = "../../../util/unexpected" }
+
+[dev-dependencies]
+vastcore = { path = "../..", features = ["test-helpers"] }
+keccak-hash = "0.4.0"
+rlp = "0.4.2"
+spec = { path = "../../spec" }
+tempdir = "0.3"
